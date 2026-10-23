@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handbuch · ATLAS</title>
+<meta name="description" content="Handbuch zu ATLAS: Starten, Bereiche, Suche, Kontrollzentrum, Automationen, IT-Werkzeuge, Tastenkürzel und Datenschutz.">
+<meta name="theme-color" content="#0c0d0f">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="ATLAS Startseite"><img src="assets/logo.png" alt="">ATLAS</a>
+    <nav class="menu" aria-label="Hauptmenü">
+      <a href="funktionen.html"><sup>01</sup>Funktionen</a>
+      <a href="demo.html"><sup>02</sup>Live-Demo</a>
+      <a href="handbuch.html" aria-current="page"><sup>03</sup>Handbuch</a>
+      <a href="versionen.html"><sup>04</sup>Versionen</a>
+    </nav>
+    <p class="sheet-now" aria-live="polite"><span>Blatt</span><b id="sheetNow">Handbuch</b></p>
+    <a class="cta" href="demo.html">Live-Demo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="ruler" aria-hidden="true"><i id="rulerFill"></i></div>
+</header>
+
+<main id="inhalt">
+  <div class="page-top"><div class="wrap">
+    <h1>Handbuch</h1>
+    <p>Wie ATLAS aufgebaut ist, wie man es startet und bedient, und wo die Daten liegen.</p>
+  </div></div>
+
+  <div class="wrap docs">
+    <aside class="toc" aria-label="Inhalt">
+      <p>Inhalt</p>
+      <ol>
+        <li><a href="#start">Starten</a></li>
+        <li><a href="#katalog">Katalog und Bereiche</a></li>
+        <li><a href="#suche">Suche</a></li>
+        <li><a href="#projekt">Projekt anlegen</a></li>
+        <li><a href="#kontrolle">Kontrollzentrum</a></li>
+        <li><a href="#automationen">Automationen</a></li>
+        <li><a href="#it">IT-Werkzeuge</a></li>
+        <li><a href="#darstellung">Darstellung</a></li>
+        <li><a href="#tastenkuerzel">Tastenkürzel</a></li>
+        <li><a href="#daten">Daten und Datenschutz</a></li>
+        <li><a href="#technik">Technik</a></li>
+      </ol>
+    </aside>
+
+    <article class="prose">
+      <h2 id="start">Starten</h2>
+      <p>ATLAS wird über die Verknüpfung auf dem Desktop oder im Startmenü gestartet. Dabei passiert Folgendes:</p>
+      <ol>
+        <li>Der Server <code>atlas.pyw</code> startet ohne Konsolenfenster auf <code>127.0.0.1:4321</code>.</li>
+        <li>Edge öffnet ATLAS im App-Modus. Das Fenster hat ein eigenes Symbol in der Taskleiste und lässt sich anheften.</li>
+        <li>Ein zweiter Doppelklick öffnet nur ein weiteres Fenster, der Server läuft bereits.</li>
+      </ol>
+      <p>Wenn 20 Minuten lang kein Fenster offen ist, beendet sich der Server. Ist eine Automation aktiv, läuft er weiter.</p>
+      <pre><code>python atlas.pyw --no-window   # nur der Server, zum Testen im Browser</code></pre>
+
+      <h2 id="katalog">Katalog und Bereiche</h2>
+      <p>Alle Bereiche und Projekte stehen in <code>catalog.json</code>. Ein Projekt hat einen Namen, einen Bereich, einen Status und einen oder mehrere Ordner. Pfade können Kürzel wie <code>{CLAUDE}</code> oder <code>{HOME}</code> verwenden.</p>
+      <pre><code>{
+  "id": "harbor",
+  "name": "HARBOR",
+  "section": "plattform",
+  "status": "live",
+  "paths": ["{CLAUDE}/harbor"],
+  "live": "https://harbor.alex-dev.example/"
+}</code></pre>
+      <p>Status sind <strong>Live</strong>, <strong>Aktiv</strong>, <strong>Entwurf</strong>, <strong>Pausiert</strong>, <strong>Fertig</strong> und <strong>Archiv</strong>. Office-Dateien müssen nicht eingetragen werden: Die Sammlungen werden bei jedem Scan neu gebildet.</p>
+
+      <h2 id="suche">Suche</h2>
+      <p><kbd>Ctrl</kbd> <kbd>K</kbd> oder <kbd>/</kbd> öffnet die Suche. Sie findet Projekte nach Name, Technik und Tags, dazu Dateien in allen Projektordnern. Ganz unten steht «Im Code suchen»: Damit wird der Inhalt aller Textdateien durchsucht, mit Zeilennummer und Sprung in den Datei-Explorer.</p>
+
+      <h2 id="projekt">Projekt anlegen</h2>
+      <p>«Neu» oben rechts oder <kbd>N</kbd> öffnet den Dialog. Pflicht sind Name und Bereich. Ordner, Live-URL, GitHub-Repository und Start-Befehl können später ergänzt werden. <kbd>Ctrl</kbd> <kbd>Enter</kbd> speichert.</p>
+      <div class="note">Ein eigenes Titelbild lässt sich auf der Projektseite per Drag and Drop oder mit <kbd>Ctrl</kbd> <kbd>V</kbd> setzen.</div>
+
+      <h2 id="kontrolle">Kontrollzentrum</h2>
+      <h3>Dev-Server</h3>
+      <p>Die Liste kommt aus <code>.claude/launch.json</code>. ATLAS startet den Befehl, merkt sich den Prozess und zeigt das Log. Läuft der Port bereits, gilt der Server als gestartet.</p>
+      <h3>VMs und WSL</h3>
+      <p>VirtualBox-Maschinen werden über <code>VBoxManage</code>, WSL-Distributionen über <code>wsl.exe</code> gesteuert.</p>
+      <h3>Monitor</h3>
+      <p>Jede Live-URL wird alle fünf Minuten abgefragt. Die letzten Ergebnisse stehen als Balken neben der Seite, darunter die GitHub-Actions und die Zertifikate.</p>
+
+      <h2 id="automationen">Automationen</h2>
+      <p>Eine Regel besteht aus einem Auslöser und einer oder mehreren Aktionen. Beim Anlegen zählt der aktuelle Zustand als bereits gesehen, damit nicht alles auf einmal auslöst. Mit «Test» lässt sich eine Regel sofort ausprobieren.</p>
+      <table class="table">
+        <thead><tr><th>Auslöser</th><th>Geprüft</th></tr></thead>
+        <tbody>
+          <tr><td>Seite down / wieder da</td><td>alle 5 Minuten</td></tr>
+          <tr><td>Pipeline fehlgeschlagen</td><td>alle 5 Minuten</td></tr>
+          <tr><td>Zertifikat oder Ablaufdatum</td><td>stündlich</td></tr>
+          <tr><td>Zeitplan, RAM, Akku, Speicher</td><td>jede Minute</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="it">IT-Werkzeuge</h2>
+      <p>Ping, Traceroute, Port-Check und DNS verwenden die Windows-Befehle <code>ping</code>, <code>tracert</code> und <code>Resolve-DnsName</code>. Der Subnetz-Rechner läuft im Browser.</p>
+      <div class="note">Der Netz-Scan prüft höchstens 254 Adressen und nur in Netzen, die man vorher als eigenes bestätigt hat. Schul-, Firmen- und öffentliche Netze werden erkannt und gewarnt. Dort ist Scannen meist durch die Nutzungsregeln verboten.</div>
+      <p>Im Server-Verzeichnis werden Name, Adresse, Port und Benutzer gespeichert. Passwörter bleiben im Passwort-Manager.</p>
+
+      <h2 id="darstellung">Darstellung</h2>
+      <p>Das Paletten-Symbol oben rechts oder <kbd>,</kbd> öffnet die Einstellungen: Thema, Akzentfarbe, Banner, Grösse, Kontrast und Bewegung. Die Einstellungen gelten pro Gerät.</p>
+      <p>Unter «GUI-Versionen» stehen alle gesicherten Stände der Oberfläche. «Zurückholen» sichert vorher automatisch den aktuellen Stand.</p>
+
+      <h2 id="tastenkuerzel">Tastenkürzel</h2>
+      <table class="table">
+        <thead><tr><th>Taste</th><th>Wirkung</th></tr></thead>
+        <tbody>
+          <tr><td><kbd>Ctrl</kbd> <kbd>K</kbd> oder <kbd>/</kbd></td><td>Suche öffnen</td></tr>
+          <tr><td><kbd>N</kbd></td><td>Neues Projekt</td></tr>
+          <tr><td><kbd>T</kbd></td><td>Hell / Dunkel</td></tr>
+          <tr><td><kbd>,</kbd></td><td>Darstellung</td></tr>
+          <tr><td><kbd>?</kbd></td><td>Alle Tastenkürzel</td></tr>
+          <tr><td><kbd>G</kbd> dann <kbd>H</kbd></td><td>Übersicht</td></tr>
+          <tr><td><kbd>G</kbd> dann <kbd>A</kbd></td><td>Alle Projekte</td></tr>
+          <tr><td><kbd>G</kbd> dann <kbd>S</kbd></td><td>Steuerung</td></tr>
+          <tr><td><kbd>G</kbd> dann <kbd>M</kbd></td><td>Monitor</td></tr>
+          <tr><td><kbd>G</kbd> dann <kbd>W</kbd></td><td>Netzwerk</td></tr>
+          <tr><td><kbd>G</kbd> dann <kbd>P</kbd></td><td>Arbeitsrapport</td></tr>
+          <tr><td><kbd>Alt</kbd> <kbd>←</kbd></td><td>Zurück</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="daten">Daten und Datenschutz</h2>
+      <ul>
+        <li>ATLAS hört nur auf <code>127.0.0.1</code>. Andere Geräte im Netz erreichen es nicht.</li>
+        <li>Zwischenspeicher, Vorschaubilder und Einstellungen liegen in <code>C:\Users\&lt;Name&gt;\.atlas</code>.</li>
+        <li>Tokens für Discord und Spotify werden nur lokal gespeichert. Für GitHub wird die bestehende Anmeldung von <code>gh</code> verwendet.</li>
+        <li>Gelöscht wird nur in den Papierkorb und nur nach Bestätigung.</li>
+        <li>Outlook wird nicht im Hintergrund abgefragt, wenn Windows dafür eine Sicherheitswarnung zeigen würde.</li>
+      </ul>
+      <p>Die Demo auf dieser Website läuft komplett im Browser. Sie verwendet Beispieldaten und sendet nichts an einen Server.</p>
+
+      <h2 id="technik">Technik</h2>
+      <table class="table">
+        <thead><tr><th>Datei</th><th>Aufgabe</th></tr></thead>
+        <tbody>
+          <tr><td><code>atlas.pyw</code></td><td>Server, Scanner, Start des Fensters</td></tr>
+          <tr><td><code>render.py</code></td><td>Vorschaubilder über Office, PyMuPDF und Pillow</td></tr>
+          <tr><td><code>connectors.py</code></td><td>System, Outlook, Discord, GitHub</td></tr>
+          <tr><td><code>control.py</code> / <code>monitor.py</code></td><td>Dev-Server, VMs, Musik, Uptime, Pipelines</td></tr>
+          <tr><td><code>automations.py</code></td><td>Regeln, Meldungen, Hintergrund-Thread</td></tr>
+          <tr><td><code>itools.py</code></td><td>Netzwerk, Server, Rapport, Inventar</td></tr>
+          <tr><td><code>app/</code></td><td>Oberfläche aus HTML, CSS und JavaScript ohne Framework</td></tr>
+        </tbody>
+      </table>
+    </article>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="logo" href="index.html"><img src="assets/logo.png" alt="">ATLAS</a><p class="muted" style="margin-top:14px;max-width:280px">Lokales Kontrollzentrum für alle Projekte auf dem Laptop.</p></div>
+      <div><h4>Produkt</h4><ul><li><a href="funktionen.html">Funktionen</a></li><li><a href="demo.html">Live-Demo</a></li><li><a href="versionen.html">Versionen</a></li></ul></div>
+      <div><h4>Hilfe</h4><ul><li><a href="handbuch.html">Handbuch</a></li><li><a href="handbuch.html#tastenkuerzel">Tastenkürzel</a></li><li><a href="handbuch.html#daten">Daten und Datenschutz</a></li></ul></div>
+      <div><h4>Autor</h4><ul><li><a href="https://notdom1n1c.github.io/" target="_blank" rel="noopener">Portfolio</a></li><li><a href="https://github.com/NotDom1n1c" target="_blank" rel="noopener">GitHub</a></li></ul></div>
+    </div>
+    <p class="small">© 2026 Dominic Aebersold. Programm-Symbole gehören ihren Herstellern. Die Demo verwendet Beispieldaten.</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

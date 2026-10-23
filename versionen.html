@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Versionen · ATLAS</title>
+<meta name="description" content="Alle Versionen von ATLAS mit Datum und Änderungen.">
+<meta name="theme-color" content="#0c0d0f">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="ATLAS Startseite"><img src="assets/logo.png" alt="">ATLAS</a>
+    <nav class="menu" aria-label="Hauptmenü">
+      <a href="funktionen.html"><sup>01</sup>Funktionen</a>
+      <a href="demo.html"><sup>02</sup>Live-Demo</a>
+      <a href="handbuch.html"><sup>03</sup>Handbuch</a>
+      <a href="versionen.html" aria-current="page"><sup>04</sup>Versionen</a>
+    </nav>
+    <p class="sheet-now" aria-live="polite"><span>Blatt</span><b id="sheetNow">Versionen</b></p>
+    <a class="cta" href="demo.html">Live-Demo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="ruler" aria-hidden="true"><i id="rulerFill"></i></div>
+</header>
+
+<main id="inhalt">
+  <div class="page-top"><div class="wrap">
+    <h1>Versionen</h1>
+    <p>Was sich wann geändert hat. Jede Version der Oberfläche ist in ATLAS gesichert und lässt sich zurückholen.</p>
+  </div></div>
+
+  <div class="wrap">
+    <ol class="releases">
+      <li class="release">
+        <div class="release-meta"><b>v10</b><time datetime="2026-10-23">23. Oktober 2026</time><br><span class="tag-live">AKTUELL</span></div>
+        <div><h2>Eigenes Logo und neue Inhaltsgestaltung</h2><ul>
+          <li>Neues Logo: das «A» mit Netzwerk-Knoten, auch in der Taskleiste und in den Verknüpfungen.</li>
+          <li>Jede Art von Inhalt hat eine eigene Darstellung: Port-Karte, Kippschalter, Countdown-Ringe, Zeitstrahl im Rapport, Verbindungskette im Netzwerk.</li>
+          <li>Grosse Boxen haben harte Ecken, innere Elemente bleiben abgerundet.</li>
+        </ul></div>
+      </li>
+      <li class="release">
+        <div class="release-meta"><b>v6 bis v9</b><time datetime="2026-10-22">22. Oktober 2026</time></div>
+        <div><h2>IT-Werkzeuge</h2><ul>
+          <li>Neue Seiten Netzwerk, Server, Arbeitsrapport und Inventar.</li>
+          <li>Zertifikate und Ablaufdaten im Monitor, mit passendem Auslöser für Automationen.</li>
+          <li>Netz-Scan nur in Netzen, die als eigenes bestätigt wurden.</li>
+          <li>Info-Boxen als Datenblatt mit Zellen statt einfacher Listen.</li>
+        </ul></div>
+      </li>
+      <li class="release">
+        <div class="release-meta"><b>v2 bis v5</b><time datetime="2026-10-21">21. Oktober 2026</time></div>
+        <div><h2>Neue Oberfläche</h2><ul>
+          <li>Darstellung mit Akzentfarben, Banner, Grösse, Kontrast und weniger Bewegung.</li>
+          <li>Echte Programm-Symbole für alle Bereiche und Seiten.</li>
+          <li>Jeder Seitenkopf mit eigenem animiertem Hintergrund.</li>
+          <li>Neues Fenster «Neues Projekt», einklappbare Seitenleiste, Tastenkürzel mit <kbd>G</kbd>.</li>
+          <li>GUI-Versionen: jeder Stand der Oberfläche wird gesichert.</li>
+        </ul></div>
+      </li>
+      <li class="release">
+        <div class="release-meta"><b>v1.3</b><time datetime="2026-10-20">20. Oktober 2026</time></div>
+        <div><h2>Automationen</h2><ul>
+          <li>Regeln nach dem Muster «wenn … dann …» mit Windows-Meldungen und Discord-Nachrichten.</li>
+          <li>Spotify über die Web-API, Cover in der Musik-Kachel.</li>
+        </ul></div>
+      </li>
+      <li class="release">
+        <div class="release-meta"><b>v1.2</b><time datetime="2026-10-19">19. Oktober 2026</time></div>
+        <div><h2>Kontrollzentrum</h2><ul>
+          <li>Dev-Server, VirtualBox und WSL steuern.</li>
+          <li>Monitor für Live-Seiten und GitHub-Actions, Roblox-Statistiken.</li>
+          <li>Bewerbungen aus der Excel-Liste, Obsidian-Notizen, Aufräumen mit Duplikat-Suche.</li>
+        </ul></div>
+      </li>
+      <li class="release">
+        <div class="release-meta"><b>v1.0</b><time datetime="2026-10-18">18. Oktober 2026</time></div>
+        <div><h2>Erste Version</h2><ul>
+          <li>Alle Projekte in Bereichen, mit Scanner, Vorschaubildern und Code-Suche.</li>
+          <li>Office-Sammlungen für PowerPoint, Excel, Word und PDF.</li>
+          <li>System, E-Mails, Discord, GitHub und Zeitachse.</li>
+        </ul></div>
+      </li>
+    </ol>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="logo" href="index.html"><img src="assets/logo.png" alt="">ATLAS</a><p class="muted" style="margin-top:14px;max-width:280px">Lokales Kontrollzentrum für alle Projekte auf dem Laptop.</p></div>
+      <div><h4>Produkt</h4><ul><li><a href="funktionen.html">Funktionen</a></li><li><a href="demo.html">Live-Demo</a></li><li><a href="versionen.html">Versionen</a></li></ul></div>
+      <div><h4>Hilfe</h4><ul><li><a href="handbuch.html">Handbuch</a></li><li><a href="handbuch.html#tastenkuerzel">Tastenkürzel</a></li><li><a href="handbuch.html#daten">Daten und Datenschutz</a></li></ul></div>
+      <div><h4>Autor</h4><ul><li><a href="https://notdom1n1c.github.io/" target="_blank" rel="noopener">Portfolio</a></li><li><a href="https://github.com/NotDom1n1c" target="_blank" rel="noopener">GitHub</a></li></ul></div>
+    </div>
+    <p class="small">© 2026 Dominic Aebersold. Programm-Symbole gehören ihren Herstellern. Die Demo verwendet Beispieldaten.</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

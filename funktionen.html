@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funktionen · ATLAS</title>
+<meta name="description" content="Was ATLAS kann: Projekte, Office-Sammlungen, Steuerung, Automationen, Monitor, IT-Werkzeuge, Arbeitsrapport und Inventar.">
+<meta name="theme-color" content="#0c0d0f">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="ATLAS Startseite"><img src="assets/logo.png" alt="">ATLAS</a>
+    <nav class="menu" aria-label="Hauptmenü">
+      <a href="funktionen.html" aria-current="page"><sup>01</sup>Funktionen</a>
+      <a href="demo.html"><sup>02</sup>Live-Demo</a>
+      <a href="handbuch.html"><sup>03</sup>Handbuch</a>
+      <a href="versionen.html"><sup>04</sup>Versionen</a>
+    </nav>
+    <p class="sheet-now" aria-live="polite"><span>Blatt</span><b id="sheetNow">Funktionen</b></p>
+    <a class="cta" href="demo.html">Live-Demo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="ruler" aria-hidden="true"><i id="rulerFill"></i></div>
+</header>
+
+<main id="inhalt">
+  <div class="page-top"><div class="wrap">
+    <h1>Funktionen</h1>
+    <p>Jede Seite in ATLAS hat eine Aufgabe. Hier steht, was sie macht und wie sie aussieht. Alle Bilder stammen aus der Demo.</p>
+  </div></div>
+
+  <div class="wrap docs">
+    <aside class="toc" aria-label="Inhalt">
+      <p>Inhalt</p>
+      <ol>
+        <li><a href="#projekte">Projekte und Bereiche</a></li>
+        <li><a href="#office">Office-Sammlungen</a></li>
+        <li><a href="#steuerung">Steuerung</a></li>
+        <li><a href="#automationen">Automationen</a></li>
+        <li><a href="#monitor">Monitor und GitHub</a></li>
+        <li><a href="#system">System</a></li>
+        <li><a href="#netzwerk">Netzwerk und Server</a></li>
+        <li><a href="#rapport">Arbeitsrapport</a></li>
+        <li><a href="#inventar">Inventar</a></li>
+        <li><a href="#darstellung">Darstellung</a></li>
+      </ol>
+    </aside>
+
+    <div>
+      <section class="chapter" id="projekte">
+        <span class="num">01</span>
+        <h2>Projekte und Bereiche</h2>
+        <p>ATLAS kennt jedes Projekt aus <code>catalog.json</code> und scannt dessen Ordner. Projekte gehören zu Bereichen, Bereiche können Unterbereiche haben, zum Beispiel Schule › Module › Modul 346.</p>
+        <ul class="points">
+          <li><b>Scanner</b>Dateien, Grösse, Codezeilen pro Sprache, letzte Änderung und Git-Branch.</li>
+          <li><b>Vorschaubilder</b>Screenshot der Website, Folie 1, erste Seite eines PDFs oder eine Code-Karte.</li>
+          <li><b>Suche</b><kbd>Ctrl</kbd> <kbd>K</kbd> findet Projekte, Dateien und Text im Code.</li>
+          <li><b>Unsortiert</b>Neue Ordner werden gemeldet, bis sie einem Projekt gehören.</li>
+        </ul>
+        <div class="figs">
+          <figure><div class="shot"><img src="assets/shots/projekte.jpg" alt="Alle Projekte als Karten" loading="lazy" width="1440" height="900"></div><figcaption>Alle Projekte, nach letzter Änderung sortiert.</figcaption></figure>
+          <figure><div class="shot"><img src="assets/shots/projekt.jpg" alt="Projektseite von Tasklane" loading="lazy" width="1440" height="900"></div><figcaption>Projektseite mit Kennzahlen, Speicherorten und Readme.</figcaption></figure>
+        </div>
+        <a class="more" href="demo.html#/all">In der Live-Demo ansehen</a>
+      </section>
+
+      <section class="chapter" id="office">
+        <span class="num">02</span>
+        <h2>Office-Sammlungen</h2>
+        <p>PowerPoint, Word, Excel, Visio und Packet Tracer liegen oft verstreut in Downloads, OneDrive und Dokumente. ATLAS sammelt sie automatisch und sortiert sie nach Regeln in Bereiche wie «Präsentationen › Schule › Modul 188».</p>
+        <ul class="points">
+          <li><b>Versionen zusammenfassen</b>«Präsentation_final», «_v2» und «_backup» werden ein Eintrag.</li>
+          <li><b>Vorschau</b>Folie 1 und Word-Seite 1 werden über Office selbst gerendert.</li>
+          <li><b>Grossansicht</b>Alle Folien einer Präsentation durchblättern, ohne PowerPoint zu öffnen.</li>
+          <li><b>Echte Symbole</b>Die Programm-Symbole kommen direkt aus den installierten Programmen.</li>
+        </ul>
+        <figure><div class="shot"><img src="assets/shots/praesentationen.jpg" alt="Bereich Präsentationen" loading="lazy" width="1440" height="900"></div><figcaption>Bereich «Präsentationen», gruppiert nach Modul.</figcaption></figure>
+        <a class="more" href="demo.html#/s/praesentationen">In der Live-Demo ansehen</a>
+      </section>
+
+      <section class="chapter" id="steuerung">
+        <span class="num">03</span>
+        <h2>Steuerung</h2>
+        <p>Die Dev-Server kommen aus <code>.claude/launch.json</code>. Jeder lässt sich starten, stoppen und im Browser öffnen, das Log ist einen Klick entfernt.</p>
+        <ul class="points">
+          <li><b>Dev-Server</b>Start, Stopp, Log und Vorschau pro Projekt.</li>
+          <li><b>VMs und WSL</b>VirtualBox-Maschinen und WSL-Distributionen ein- und ausschalten.</li>
+          <li><b>Musik</b>Was gerade läuft, mit Cover, über Windows oder die Spotify-API.</li>
+          <li><b>Schnellaktionen</b>Sperren, Energiesparen, Papierkorb leeren, Downloads sortieren.</li>
+        </ul>
+        <figure><div class="shot"><img src="assets/shots/steuerung.jpg" alt="Seite Steuerung" loading="lazy" width="1440" height="900"></div><figcaption>Steuerung mit allen Dev-Servern.</figcaption></figure>
+        <a class="more" href="demo.html#/control">In der Live-Demo ansehen</a>
+      </section>
+
+      <section class="chapter" id="automationen">
+        <span class="num">04</span>
+        <h2>Automationen</h2>
+        <p>Regeln nach dem Muster «wenn … dann …». Eine Regel meldet sich nur, wenn sich etwas ändert: eine Seite, die down bleibt, meldet sich einmal und erst wieder, wenn sie zwischendurch online war.</p>
+        <ul class="points">
+          <li><b>Auslöser</b>Seite down oder wieder da, Pipeline rot, Zeitplan, RAM voll, Akku leer, Zertifikat läuft ab.</li>
+          <li><b>Aktionen</b>Windows-Meldung, Discord-Nachricht, Server starten oder stoppen, App öffnen.</li>
+          <li><b>Vorlagen</b>Zehn fertige Regeln zum Übernehmen.</li>
+          <li><b>Verlauf</b>Jede ausgelöste Regel mit Zeit und Ergebnis.</li>
+        </ul>
+        <figure><div class="shot"><img src="assets/shots/automationen.jpg" alt="Seite Automationen" loading="lazy" width="1440" height="900"></div><figcaption>Automationen mit aktiven Regeln und Verlauf.</figcaption></figure>
+        <a class="more" href="demo.html#/automations">In der Live-Demo ansehen</a>
+      </section>
+
+      <section class="chapter" id="monitor">
+        <span class="num">05</span>
+        <h2>Monitor und GitHub</h2>
+        <p>Alle fünf Minuten prüft ATLAS die Live-Seiten und die GitHub-Actions der eigenen Repositories. Zertifikate und eigene Ablaufdaten wie Lizenzen oder Tokens stehen daneben.</p>
+        <ul class="points">
+          <li><b>Uptime</b>Antwortzeit und Verlauf der letzten Prüfungen pro Seite.</li>
+          <li><b>Pipelines</b>Status jedes Workflows mit Branch und Zeit.</li>
+          <li><b>Zertifikate</b>Restlaufzeit als Ring, Warnung vor dem Ablauf.</li>
+          <li><b>GitHub</b>Repositories, Sterne, letzte Commits.</li>
+        </ul>
+        <div class="figs">
+          <figure><div class="shot"><img src="assets/shots/monitor.jpg" alt="Seite Monitor" loading="lazy" width="1440" height="900"></div><figcaption>Monitor mit Live-Seiten und Pipelines.</figcaption></figure>
+          <figure><div class="shot"><img src="assets/shots/github.jpg" alt="Seite GitHub" loading="lazy" width="1440" height="900"></div><figcaption>GitHub-Repositories und Commits.</figcaption></figure>
+        </div>
+        <a class="more" href="demo.html#/monitor">In der Live-Demo ansehen</a>
+      </section>
+
+      <section class="chapter" id="system">
+        <span class="num">06</span>
+        <h2>System</h2>
+        <p>Prozessor, Arbeitsspeicher, Laufwerke, Netzwerk und Akku, alle zwei Sekunden aktualisiert. Die grössten Prozesse stehen darunter.</p>
+        <figure><div class="shot"><img src="assets/shots/system.jpg" alt="Seite System" loading="lazy" width="1440" height="900"></div><figcaption>Systemauslastung in Echtzeit.</figcaption></figure>
+        <a class="more" href="demo.html#/system">In der Live-Demo ansehen</a>
+      </section>
+
+      <section class="chapter" id="netzwerk">
+        <span class="num">07</span>
+        <h2>Netzwerk und Server</h2>
+        <p>Die Werkzeuge, die man im IT-Alltag ständig braucht, ohne Kommandozeile. Das Server-Verzeichnis speichert nur Adresse und Benutzer, nie Passwörter.</p>
+        <ul class="points">
+          <li><b>Verbindung</b>Internet, Router und Laptop als Kette, mit IP, Gateway, DNS und WLAN.</li>
+          <li><b>Werkzeuge</b>Ping, Traceroute, Port-Check, DNS-Abfrage, Subnetz-Rechner, Wake-on-LAN.</li>
+          <li><b>Netz-Scan</b>Nur in Netzen, die man selbst als eigenes bestätigt hat. Schul- und Firmennetze sind gesperrt.</li>
+          <li><b>Server</b>SSH im Windows Terminal, Remote Desktop oder Weboberfläche mit einem Klick.</li>
+        </ul>
+        <div class="figs">
+          <figure><div class="shot"><img src="assets/shots/netzwerk.jpg" alt="Seite Netzwerk" loading="lazy" width="1440" height="900"></div><figcaption>Netzwerk mit Verbindungskette und Adaptern.</figcaption></figure>
+          <figure><div class="shot"><img src="assets/shots/server.jpg" alt="Seite Server" loading="lazy" width="1440" height="900"></div><figcaption>Server mit Status und Verbindungsbefehl.</figcaption></figure>
+        </div>
+        <a class="more" href="demo.html#/net">In der Live-Demo ansehen</a>
+      </section>
+
+      <section class="chapter" id="rapport">
+        <span class="num">08</span>
+        <h2>Arbeitsrapport</h2>
+        <p>Für die Lehre muss jede Woche ein Rapport geschrieben werden. ATLAS sammelt dafür, was in der Woche passiert ist: geänderte Dateien pro Projekt, Commits auf GitHub und Notizen aus Obsidian.</p>
+        <ul class="points">
+          <li><b>Stunden</b>Geschätzt aus den Änderungen: weniger als 45 Minuten Abstand gilt als eine Sitzung.</li>
+          <li><b>Vorschlag</b>Pro Tag ein Satz, der übernommen oder überschrieben werden kann.</li>
+          <li><b>Export</b>Als Word-Datei oder als Notiz in Obsidian.</li>
+          <li><b>Wochen</b>Zurück und vor blättern, jede Woche bleibt gespeichert.</li>
+        </ul>
+        <figure><div class="shot"><img src="assets/shots/rapport.jpg" alt="Seite Arbeitsrapport" loading="lazy" width="1440" height="900"></div><figcaption>Arbeitsrapport für Kalenderwoche 42.</figcaption></figure>
+        <a class="more" href="demo.html#/report">In der Live-Demo ansehen</a>
+      </section>
+
+      <section class="chapter" id="inventar">
+        <span class="num">09</span>
+        <h2>Inventar</h2>
+        <p>Eine Systemdokumentation des eigenen Geräts auf Knopfdruck: Hardware, Netzwerk, Firewall und Virenschutz, lokale Konten, offene Ports, WSL und VMs sowie installierte Software. Der Export als Word ist für Projektwochen und Prüfungen gedacht.</p>
+        <figure><div class="shot"><img src="assets/shots/inventar.jpg" alt="Seite Inventar" loading="lazy" width="1440" height="900"></div><figcaption>Inventar mit Übersicht, Hardware und Sicherheit.</figcaption></figure>
+        <a class="more" href="demo.html#/inventory">In der Live-Demo ansehen</a>
+      </section>
+
+      <section class="chapter" id="darstellung">
+        <span class="num">10</span>
+        <h2>Darstellung</h2>
+        <p>Unter Darstellung lassen sich Hell und Dunkel, fünf Akzentfarben, die Grösse von 90 bis 125 Prozent, mehr Kontrast und weniger Bewegung einstellen. Die Startseite kann ein eigenes Bannerbild bekommen.</p>
+        <p>Vor jeder grösseren Änderung an der Oberfläche wird der alte Stand gesichert. Unter «GUI-Versionen» lässt er sich mit einem Klick zurückholen.</p>
+        <a class="more" href="versionen.html">Alle Versionen ansehen</a>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="logo" href="index.html"><img src="assets/logo.png" alt="">ATLAS</a><p class="muted" style="margin-top:14px;max-width:280px">Lokales Kontrollzentrum für alle Projekte auf dem Laptop.</p></div>
+      <div><h4>Produkt</h4><ul><li><a href="funktionen.html">Funktionen</a></li><li><a href="demo.html">Live-Demo</a></li><li><a href="versionen.html">Versionen</a></li></ul></div>
+      <div><h4>Hilfe</h4><ul><li><a href="handbuch.html">Handbuch</a></li><li><a href="handbuch.html#tastenkuerzel">Tastenkürzel</a></li><li><a href="handbuch.html#daten">Daten und Datenschutz</a></li></ul></div>
+      <div><h4>Autor</h4><ul><li><a href="https://notdom1n1c.github.io/" target="_blank" rel="noopener">Portfolio</a></li><li><a href="https://github.com/NotDom1n1c" target="_blank" rel="noopener">GitHub</a></li></ul></div>
+    </div>
+    <p class="small">© 2026 Dominic Aebersold. Programm-Symbole gehören ihren Herstellern. Die Demo verwendet Beispieldaten.</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

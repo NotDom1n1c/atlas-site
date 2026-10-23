@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATLAS · Kontrollzentrum für alle Projekte</title>
+<meta name="description" content="ATLAS ist ein lokales Kontrollzentrum für Windows: alle Projekte, Office-Dateien, Dev-Server, Monitoring und IT-Werkzeuge in einer App.">
+<meta name="theme-color" content="#0c0d0f">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="top over">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="ATLAS Startseite"><img src="assets/logo.png" alt="">ATLAS</a>
+    <nav class="menu" aria-label="Hauptmenü">
+      <a href="funktionen.html"><sup>01</sup>Funktionen</a>
+      <a href="demo.html"><sup>02</sup>Live-Demo</a>
+      <a href="handbuch.html"><sup>03</sup>Handbuch</a>
+      <a href="versionen.html"><sup>04</sup>Versionen</a>
+    </nav>
+    <p class="sheet-now" aria-live="polite"><span>Blatt</span><b id="sheetNow">Willkommen</b></p>
+    <a class="cta" href="demo.html">Live-Demo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="ruler" aria-hidden="true"><i id="rulerFill"></i></div>
+</header>
+
+<main id="inhalt">
+  <!-- Blatt 1: Willkommen. Verstreute Dateien werden zu einem Atlas -->
+  <section class="intro" data-sheet="Willkommen">
+    <canvas id="introFx" aria-hidden="true"></canvas>
+    <h1 class="sr-only">ATLAS, das Kontrollzentrum für alles, was auf deinem Laptop entsteht</h1>
+    <ul class="intro-pins" aria-hidden="true"></ul>
+    <div class="intro-copy">
+      <p class="intro-line"><span>Verstreute Dateien.</span> <span>Ein Atlas.</span></p>
+      <p class="intro-sub">Projekte, Präsentationen, Skripte, Server und Werkzeuge. Lokal auf deinem Laptop, an einem Ort.</p>
+      <a class="scroll-cue" href="#karte"><span>Karte aufschlagen</span><i></i></a>
+    </div>
+  </section>
+
+  <!-- Blatt 2: die App als Karte, daneben die Legende -->
+  <section class="plate" id="karte" data-sheet="Übersicht" aria-label="ATLAS im Überblick">
+    <div class="plate-wrap">
+      <aside class="legend">
+        <p class="sheet">Blatt 2 · Übersicht</p>
+        <h2 class="legend-h">So sieht ATLAS aus.</h2>
+        <p class="legend-text">Projekte, Schulmodule, Präsentationen und Skripte, dazu die Server, Seiten und Werkzeuge, die dazugehören. Rechts läuft die echte App mit Beispieldaten.</p>
+
+        <h2 class="legend-title">Legende</h2>
+        <ol class="keys" id="keys">
+          <li data-area="side"><span class="pin">1</span><div><b>Seitenleiste</b><small>Rund 30 Seiten in fünf Gruppen</small></div></li>
+          <li data-area="search"><span class="pin">2</span><div><b>Suche</b><small>Projekte, Dateien und Code · <kbd>Ctrl</kbd> <kbd>K</kbd></small></div></li>
+          <li data-area="kpis"><span class="pin">3</span><div><b>Kennzahlen</b><small>Projekte, Office-Dateien, Codezeilen</small></div></li>
+          <li data-area="live"><span class="pin">4</span><div><b>Live-Kacheln</b><small>Server, Seiten, Spiel, Automationen</small></div></li>
+          <li data-area="areas"><span class="pin">5</span><div><b>Bereiche</b><small>Alles nach Thema geordnet</small></div></li>
+        </ol>
+
+        <div class="scale" aria-hidden="true"><span></span><em>0</em><em>24 Projekte</em></div>
+        <p class="legend-links"><a class="more" href="demo.html">Im Vollbild öffnen</a><a class="more" href="#register">Register aller Seiten</a></p>
+      </aside>
+
+      <div class="map">
+        <div class="window">
+          <div class="window-bar"><span class="tag-live">LIVE</span><b>ATLAS</b><span>Beispieldaten von «Alex»</span><a href="demo.html">Vollbild</a></div>
+          <div class="stage" id="mapStage">
+            <iframe src="demo/" title="ATLAS Live-Demo mit Beispieldaten" loading="eager"></iframe>
+            <div class="marks" id="marks" aria-hidden="true">
+              <div class="mark" data-area="side" style="left:0%;top:6.7%;width:19.1%;height:93.3%"><span class="pin">1</span></div>
+              <div class="mark" data-area="search" style="left:19.2%;top:1.1%;width:24.4%;height:4.2%"><span class="pin">2</span></div>
+              <div class="mark" data-area="kpis" style="left:23.7%;top:27.6%;width:71.7%;height:9.1%"><span class="pin">3</span></div>
+              <div class="mark" data-area="live" style="left:21.5%;top:45.6%;width:76.1%;height:28.3%"><span class="pin">4</span></div>
+              <div class="mark" data-area="areas" style="left:21.5%;top:80.5%;width:76.1%;height:19.5%"><span class="pin">5</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="caption">Echte Oberfläche, erfundene Daten. Klick dich durch, Aktionen wie «Server starten» sind gesperrt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register: jede Seite der App mit Sprung in die Demo -->
+  <section class="register" id="register" data-sheet="Register">
+    <div class="wrap">
+      <header class="register-head">
+        <h2>Register</h2>
+        <p>Jede Seite von ATLAS, mit einem Satz dazu. Ein Klick öffnet sie in der Live-Demo.</p>
+      </header>
+      <div class="reg-cols">
+        <div class="reg-group"><h3>Bibliothek</h3><ul>
+          <li><a href="demo.html#/"><img src="demo/icons/explorer.png" alt=""><span>Übersicht</span><i></i><small>Begrüssung, Kennzahlen, Live-Kacheln</small></a></li>
+          <li><a href="demo.html#/all"><img src="demo/icons/explorer.png" alt=""><span>Alle Projekte</span><i></i><small>Karten oder Tabelle, filtern und sortieren</small></a></li>
+          <li><a href="demo.html#/fav"><img src="demo/icons/star.png" alt=""><span>Favoriten</span><i></i><small>Mit dem Stern markierte Projekte</small></a></li>
+          <li><a href="demo.html#/s/praesentationen"><img src="demo/icons/powerpoint.png" alt=""><span>Präsentationen</span><i></i><small>Automatisch gefunden, nach Modul sortiert</small></a></li>
+          <li><a href="demo.html#/s/dokumente"><img src="demo/icons/word.png" alt=""><span>Dokumente</span><i></i><small>Word und PDF, Versionen zusammengefasst</small></a></li>
+          <li><a href="demo.html#/timeline"><img src="demo/icons/calendar.png" alt=""><span>Zeitachse</span><i></i><small>Wann woran gearbeitet wurde</small></a></li>
+        </ul></div>
+        <div class="reg-group"><h3>Steuern</h3><ul>
+          <li><a href="demo.html#/control"><img src="demo/icons/controlpanel.png" alt=""><span>Steuerung</span><i></i><small>Dev-Server, VMs, Musik, Schnellaktionen</small></a></li>
+          <li><a href="demo.html#/automations"><img src="demo/icons/taskschd.png" alt=""><span>Automationen</span><i></i><small>Wenn-dann-Regeln mit Meldungen</small></a></li>
+          <li><a href="demo.html#/system"><img src="demo/icons/taskmgr.png" alt=""><span>System</span><i></i><small>CPU, RAM, Laufwerke, Prozesse</small></a></li>
+          <li><a href="demo.html#/storage"><img src="demo/icons/cleanmgr.png" alt=""><span>Aufräumen</span><i></i><small>Grosse Ordner, Duplikate, Papierkorb</small></a></li>
+        </ul></div>
+        <div class="reg-group"><h3>Überwachen</h3><ul>
+          <li><a href="demo.html#/monitor"><img src="demo/icons/resmon.png" alt=""><span>Monitor</span><i></i><small>Uptime, Pipelines, Zertifikate</small></a></li>
+          <li><a href="demo.html#/github"><img src="assets/github.svg" alt=""><span>GitHub</span><i></i><small>Repositories und letzte Commits</small></a></li>
+          <li><a href="demo.html#/roblox"><img src="demo/icons/roblox.png" alt=""><span>Roblox</span><i></i><small>Spieler, Besuche, Favoriten</small></a></li>
+        </ul></div>
+        <div class="reg-group"><h3>IT-Werkzeuge</h3><ul>
+          <li><a href="demo.html#/net"><img src="demo/icons/network.png" alt=""><span>Netzwerk</span><i></i><small>Ping, Traceroute, Ports, DNS, Subnetze</small></a></li>
+          <li><a href="demo.html#/hosts"><img src="demo/icons/rdp.png" alt=""><span>Server</span><i></i><small>SSH, Remote Desktop, Weboberflächen</small></a></li>
+          <li><a href="demo.html#/report"><img src="demo/icons/report.png" alt=""><span>Arbeitsrapport</span><i></i><small>Die Woche als Word-Rapport</small></a></li>
+          <li><a href="demo.html#/inventory"><img src="demo/icons/msinfo.png" alt=""><span>Inventar</span><i></i><small>Systemdoku auf Knopfdruck</small></a></li>
+        </ul></div>
+        <div class="reg-group"><h3>Kommunikation</h3><ul>
+          <li><a href="demo.html#/mail"><img src="demo/icons/outlook.png" alt=""><span>E-Mails</span><i></i><small>Posteingang aus Outlook</small></a></li>
+          <li><a href="demo.html#/discord"><img src="demo/icons/discord.png" alt=""><span>Discord</span><i></i><small>Server, Kanäle, Nachrichten senden</small></a></li>
+          <li><a href="demo.html#/notes"><img src="demo/icons/obsidian.png" alt=""><span>Notizen</span><i></i><small>Obsidian-Vault, mit Projekten verknüpft</small></a></li>
+          <li><a href="demo.html#/apply"><img src="assets/linkedin.svg" alt=""><span>Bewerbungen</span><i></i><small>Tracker mit Antworten und Nachfassen</small></a></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wie es läuft: als Ablauf mit Adressen statt Werbetext -->
+  <section class="route-sec" data-sheet="Ablauf">
+    <div class="wrap">
+      <h2>Was beim Start passiert</h2>
+      <ol class="route">
+        <li><code>ATLAS.lnk</code><p>Doppelklick auf die Verknüpfung. Kein Installer, kein Dienst im Hintergrund.</p></li>
+        <li><code>127.0.0.1:4321</code><p>Ein kleiner Python-Server startet. Er ist nur auf diesem Gerät erreichbar.</p></li>
+        <li><code>catalog.json</code><p>Projektordner und Office-Dateien werden gescannt. Neue Ordner landen unter «Unsortiert».</p></li>
+        <li><code>Edge --app</code><p>ATLAS öffnet sich als eigenes Fenster mit eigenem Symbol in der Taskleiste.</p></li>
+        <li><code>20 min</code><p>Ohne offenes Fenster beendet sich der Server, ausser eine Automation läuft.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="colophon">
+    <div class="wrap">
+      <p>ATLAS ist ein persönliches Projekt von Dominic Aebersold, Informatiker EFZ Plattformentwicklung im 2. Lehrjahr. Es ist entstanden, weil Projekte, Schulmodule und Skripte über den ganzen Laptop verteilt waren. Die Oberfläche läuft auf dieser Seite als Demo, der Server-Teil ist nicht öffentlich. <a class="more" href="https://notdom1n1c.github.io/" target="_blank" rel="noopener">Portfolio</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="logo" href="index.html"><img src="assets/logo.png" alt="">ATLAS</a><p class="muted" style="margin-top:14px;max-width:280px">Lokales Kontrollzentrum für alle Projekte auf dem Laptop.</p></div>
+      <div><h4>Produkt</h4><ul><li><a href="funktionen.html">Funktionen</a></li><li><a href="demo.html">Live-Demo</a></li><li><a href="versionen.html">Versionen</a></li></ul></div>
+      <div><h4>Hilfe</h4><ul><li><a href="handbuch.html">Handbuch</a></li><li><a href="handbuch.html#tastenkuerzel">Tastenkürzel</a></li><li><a href="handbuch.html#daten">Daten und Datenschutz</a></li></ul></div>
+      <div><h4>Autor</h4><ul><li><a href="https://notdom1n1c.github.io/" target="_blank" rel="noopener">Portfolio</a></li><li><a href="https://github.com/NotDom1n1c" target="_blank" rel="noopener">GitHub</a></li></ul></div>
+    </div>
+    <p class="small">© 2026 Dominic Aebersold. Programm-Symbole gehören ihren Herstellern. Die Demo zeigt erfundene Beispieldaten.</p>
+  </div>
+</footer>
+<script src="intro.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

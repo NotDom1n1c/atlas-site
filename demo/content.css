@@ -1,0 +1,147 @@
+/* ATLAS - Inhalte v10: grosse Boxen eckig mit Akzent-Ecken; innen pro Inhaltsart eine eigene Idee
+   (Stand davor: gui-versions/v9-…-eck-rahmen) */
+
+/* ---------- Äussere Boxen: harte Ecken + zwei Akzent-Ecken ---------- */
+.panel, .side-block, .page-head, .hero, .stile, .cc-tile, .cc-strip .cc-music, .net-card, .host, .rep-day, .rep-week,
+.card, .p-stats, .p-thumb, .explorer, .modal, .palette, .unsorted-row, .sp-box, .net-chain { border-radius: 0 !important; }
+.panel::after, .side-block::after, .rep-day:not(.empty-day)::after, .net-card::after, .host:not(.add)::after, .page-head::after, .net-chain::after {
+  content: ""; display: block !important; position: absolute; inset: -1px; pointer-events: none; z-index: 1;
+  --c: color-mix(in srgb, var(--sc, var(--accent)) 75%, transparent); --l: 14px; --w: 2px;
+  background: linear-gradient(var(--c), var(--c)) left top / var(--l) var(--w), linear-gradient(var(--c), var(--c)) left top / var(--w) var(--l),
+              linear-gradient(var(--c), var(--c)) right bottom / var(--l) var(--w), linear-gradient(var(--c), var(--c)) right bottom / var(--w) var(--l);
+  background-repeat: no-repeat;
+}
+.page-head::after { --l: 22px; }
+.rep-day, .net-card, .host { position: relative; }
+
+/* ---------- 1) Datenblatt: nur die Ecken eines abgerundeten Rahmens ---------- */
+.kv { gap: 6px 10px; }
+.kv > .kvc { padding: 10px 14px 11px; background: none; border: 0; border-radius: 12px; }
+.kv > .kvc::before { display: none !important; }
+.kv > .kvc::after { content: ""; position: absolute; inset: 0; border-radius: 12px; border: 1.5px solid var(--kc, var(--line2)); pointer-events: none;
+  -webkit-mask: linear-gradient(90deg, #000 16px, transparent 16px calc(100% - 16px), #000 calc(100% - 16px)), linear-gradient(#000 14px, transparent 14px calc(100% - 14px), #000 calc(100% - 14px));
+  -webkit-mask-composite: source-in; mask-composite: intersect; transition: border-color .15s; }
+.kv > .kvc:hover { --kc: color-mix(in srgb, var(--accent) 70%, transparent); }
+.kv > .kvc.lead { --kc: var(--accent); background: linear-gradient(100deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%); padding: 12px 16px 13px; }
+.kv > .kvc.lead::after { border-width: 2px; }
+.kv > .kvc.lead dd { font-size: 19px; }
+.kvc dt { display: flex; align-items: center; gap: 6px; }
+.kvc dt::before { content: ""; width: 4px; height: 4px; border-radius: 1px; background: var(--accent); opacity: .7; }
+
+/* ---------- 2) Kennzahlen im Begrüssungs-Block: ein Glas-Band mit Trennstrichen ---------- */
+.kpis { gap: 0; padding: 4px; border-radius: 16px; background: color-mix(in srgb, var(--bg) 45%, transparent); border: 1px solid color-mix(in srgb, var(--text) 12%, transparent); backdrop-filter: blur(10px) saturate(1.2); }
+.hero.has-banner .kpis { background: rgba(10, 11, 15, .42); border-color: rgba(255, 255, 255, .14); }
+.kpi, .hero.has-banner .kpi { background: none !important; border: 0 !important; border-radius: 12px; backdrop-filter: none !important; position: relative; padding: 12px 16px; }
+.kpi + .kpi::before { content: ""; position: absolute; left: 0; top: 16px; bottom: 16px; width: 1px; background: color-mix(in srgb, var(--text) 14%, transparent); }
+.hero.has-banner .kpi + .kpi::before { background: rgba(255, 255, 255, .16); }
+.kpi b { position: relative; display: table; }
+.kpi b::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px; border-radius: 2px; background: var(--accent-grad); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease); }
+.kpi[data-go]:hover { background: color-mix(in srgb, var(--text) 7%, transparent) !important; transform: none; }
+.kpi[data-go]:hover b::after { transform: scaleX(1); }
+
+/* ---------- 3) Offene Ports: Achse mit Zonen + Spalten ---------- */
+.pmap-axis { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); height: 46px; margin: 6px 0 20px; border-bottom: 2px solid var(--line2); }
+.pmap-zone { padding: 0 10px; border-left: 1px dashed var(--line2); display: flex; flex-direction: column; }
+.pmap-zone:first-child { border-left: 0; padding-left: 0; }
+.pmap-zone span { font: 700 10.5px var(--font); letter-spacing: .14em; text-transform: uppercase; color: var(--text2); }
+.pmap-zone em { font: normal 11px var(--mono); color: var(--faint); }
+.pmap-dot { position: absolute; bottom: -6px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: #4fd18b; border: 2px solid var(--panel); box-shadow: 0 0 0 1px rgba(79, 209, 139, .5); }
+.pmap-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.pmap-col h5 { display: flex; justify-content: space-between; margin: 0 0 8px; font: 600 12px var(--font); color: var(--muted); }
+.pmap-col h5 b { font: 600 12px var(--mono); color: var(--text2); }
+.pmap-row { display: grid; grid-template-columns: 10px 50px minmax(0, 1fr) auto; align-items: center; gap: 2px 8px; padding: 6px 8px; border-radius: 9px; font-size: 12.5px; }
+.pmap-row:hover { background: color-mix(in srgb, var(--bg) 35%, var(--panel2)); }
+.pmap-row > b { font: 600 13px var(--mono); color: #4fd18b; }
+.pmap-row > span:not(.led) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); }
+.pmap-row em { max-width: 140px; font: normal 11px var(--mono); color: var(--faint); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pmap-none { font-size: 12px; color: var(--faint); padding: 6px 8px; }
+.led { width: 8px; height: 8px; border-radius: 50%; background: var(--faint); }
+.pmap-row .led, .socket.open .led { background: #4fd18b; box-shadow: 0 0 0 3px rgba(79, 209, 139, .15); }
+
+/* Port-Check: Steckdosen-Kacheln */
+.sockets { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+.socket { position: relative; padding: 10px 10px 9px; border-radius: 12px; border: 1px dashed var(--line2); text-align: center; opacity: .6; }
+.socket .led { position: absolute; top: 8px; right: 8px; }
+.socket b { display: block; font: 600 18px var(--mono); color: var(--text2); }
+.socket small { display: block; font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.socket em { display: block; margin-top: 4px; font: normal 10.5px var(--mono); color: var(--faint); }
+.socket.open { opacity: 1; border-style: solid; border-color: rgba(79, 209, 139, .45); background: rgba(79, 209, 139, .06); }
+.socket.open b { color: #4fd18b; }
+
+/* ---------- 4) An/Aus als Kippschalter ---------- */
+.tgl { display: inline-flex; align-items: center; gap: 8px; font: 600 12.5px var(--font); color: var(--muted); }
+.tgl i { position: relative; width: 28px; height: 16px; border-radius: 99px; background: var(--panel3); border: 1px solid var(--line2); }
+.tgl i::after { content: ""; position: absolute; top: 2px; left: 2px; width: 10px; height: 10px; border-radius: 50%; background: var(--faint); transition: transform .2s; }
+.tgl.on { color: #4fd18b; }
+.tgl.on i { background: rgba(79, 209, 139, .2); border-color: rgba(79, 209, 139, .5); }
+.tgl.on i::after { transform: translateX(12px); background: #4fd18b; }
+
+/* ---------- 5) Messwerte: grosse Ziffern mit Trennstrichen ---------- */
+.readout { display: flex; flex-wrap: wrap; align-items: stretch; }
+.readout > div { display: flex; flex-direction: column; justify-content: center; padding: 2px 18px; border-left: 1px solid var(--line2); }
+.readout > div:first-child { border-left: 0; padding-left: 0; }
+.readout b { font: 600 22px/1.1 var(--display); color: var(--text); font-variant-numeric: tabular-nums; }
+.readout span { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.readout .ok b { color: #4fd18b; }
+.readout .bad b { color: #ff6b6b; }
+.readout .mono b { font: 500 14px var(--mono); padding-top: 6px; }
+.rep-nav > div.readout { margin-left: auto; flex-wrap: nowrap; flex-direction: row; min-width: 0; text-align: left; }
+.rep-nav > div.readout > div { white-space: nowrap; }
+.rep-nav > div.readout b { font-size: 22px; }
+
+/* ---------- 6) Arbeitsrapport: Zeitstrahl links, Projekt-Pillen ---------- */
+.rep-rail { position: relative; padding-left: 30px; }
+.rep-rail::before { content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; width: 2px; background: var(--line2); }
+.rep-node { position: absolute; left: -26px; top: 16px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--line2); }
+.rep-node.on { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent); }
+.rep-day.empty-day .rep-node { top: 10px; }
+.rep-head { padding-bottom: 8px; border-bottom: 1px dashed var(--line2); }
+.rep-chip { border-radius: 99px; padding: 3px 4px 3px 10px; border: 1px solid var(--line2); background: color-mix(in srgb, var(--bg) 35%, var(--panel2)); }
+.rep-chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--sc, var(--accent)); }
+.rep-chip em { min-width: 20px; text-align: center; padding: 0 6px; border-radius: 99px; background: color-mix(in srgb, var(--sc, var(--accent)) 20%, transparent); color: var(--text2); }
+.rep-commits div { padding: 3px 0 3px 10px; border-left: 2px solid color-mix(in srgb, var(--accent) 45%, transparent); }
+
+/* ---------- 7) Netzwerk: Verbindungskette ---------- */
+.net-chain { display: flex; align-items: center; margin-bottom: 16px; padding: 18px 22px; border: 1px solid var(--line); background: var(--panel); position: relative; }
+.nc-node { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 150px; text-align: center; }
+.nc-ico { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; border: 2px solid color-mix(in srgb, #4cc2ff 60%, transparent); color: #4cc2ff; background: color-mix(in srgb, #4cc2ff 10%, transparent); }
+.nc-ico .i { width: 22px; height: 22px; }
+.nc-node b { font: 600 13.5px var(--display); }
+.nc-node code { font: 11.5px var(--mono); color: var(--muted); }
+.nc-link { flex: 1; height: 2px; margin-top: -34px; background: var(--line2); }
+.nc-link.on { background: repeating-linear-gradient(90deg, #4cc2ff 0 10px, transparent 10px 18px); background-size: 36px 2px; animation: flow 1.2s linear infinite; }
+@keyframes flow { to { background-position: 36px 0; } }
+
+/* ---------- 8) Server: Terminal-Zeile ---------- */
+.term { display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 10px; background: #07080b; border: 1px solid var(--line); font: 12px var(--mono); color: #9aa4b2; overflow: hidden; white-space: nowrap; }
+:root[data-theme="light"] .term { background: #1b1d22; }
+.term b { color: #e9e6df; font-weight: 500; }
+.term-p { color: #4fd18b; }
+.term-port { color: #7fb2ff; }
+.term-cur { width: 7px; height: 14px; background: #4fd18b; animation: blink 1.1s steps(1) infinite; margin-left: 2px; }
+@keyframes blink { 50% { opacity: 0; } }
+.host.up .sdot.on { animation: pulse-up 2s infinite; }
+@keyframes pulse-up { 0% { box-shadow: 0 0 0 0 rgba(79, 209, 139, .5); } 70%, 100% { box-shadow: 0 0 0 7px rgba(79, 209, 139, 0); } }
+
+/* ---------- 9) Ablaufdaten: Countdown-Ringe ---------- */
+.ring { position: relative; width: 40px; height: 40px; flex: none; display: grid; place-items: center; }
+.ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-width: 3.2; }
+.ring .ring-bg { stroke: var(--panel3); }
+.ring .ring-fg { stroke: #4fd18b; stroke-linecap: round; }
+.ring.warn .ring-fg { stroke: #ffb547; }
+.ring.bad .ring-fg { stroke: #ff6b6b; }
+.ring b { position: relative; font: 600 11px var(--mono); color: var(--text2); }
+.exp-days { width: auto; font: 500 12px var(--font); color: var(--muted); }
+
+/* ---------- 10) Balken als Segmente, Listen mit Akzent-Strich ---------- */
+.meter i, .mp-bar i, .stile .statbar i { -webkit-mask: repeating-linear-gradient(90deg, #000 0 7px, transparent 7px 9px); mask: repeating-linear-gradient(90deg, #000 0 7px, transparent 7px 9px); }
+.meter { height: 10px; border-radius: 3px; }
+.rowlink, .srv, .exp, .site { position: relative; border-radius: 10px; }
+.rowlink::before, .srv::before, .exp::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 3px; background: var(--accent-grad); transform: scaleY(0); transition: transform .18s var(--ease); }
+.rowlink:hover::before, .srv:hover::before, .exp:hover::before { transform: scaleY(1); }
+
+/* Logo oben links */
+img.brand-mark { width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .35)); }
+
+@media (max-width: 1000px) { .pmap-cols { grid-template-columns: 1fr; } .net-chain { flex-direction: column; } .nc-link { width: 2px; height: 26px; flex: none; margin: 0; } }
