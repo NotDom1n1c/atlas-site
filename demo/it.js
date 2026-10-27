@@ -282,7 +282,7 @@ async function loadExpiry(fresh) {
     ${e.items.map((it) => `<div class="exp"><span class="sdot ${col(it.days)}"></span><div class="srv-meta"><b>${esc(it.name)}</b><small>${new Date(it.date).toLocaleDateString("de-CH")}${it.note ? " · " + esc(it.note) : ""}</small></div>
       <span class="exp-days">${it.days < 0 ? "abgelaufen" : "noch " + it.days + " Tage"}</span>${bar(it.days)}<button class="icon-btn sm" data-exp-del="${it.id}" title="Entfernen">${icon("x")}</button></div>`).join("")}</div>
     <form class="it-form" data-expform style="margin-top:12px"><input name="name" placeholder="Was läuft ab? (Lizenz, Token, Domain …)" required aria-label="Name"><input name="date" type="date" required aria-label="Datum" style="max-width:160px"><input name="note" placeholder="Notiz" aria-label="Notiz" style="max-width:180px"><button class="btn">${icon("plus")}Hinzufügen</button></form>
-    <form class="it-form" data-domform style="margin-top:8px"><input name="domain" placeholder="Weitere Domain fürs Zertifikat, z.B. ipso.ch" aria-label="Domain"><button class="btn btn-ghost">${icon("lock")}Zertifikat überwachen</button></form>
+    <form class="it-form" data-domform style="margin-top:8px"><input name="domain" placeholder="Weitere Domain fürs Zertifikat, z.B. example.com" aria-label="Domain"><button class="btn btn-ghost">${icon("lock")}Zertifikat überwachen</button></form>
     <div class="dc-note" style="margin-top:8px">Tipp: Unter Automationen gibt es die Vorlage «Zertifikat/Lizenz läuft ab → Meldung».</div>`;
 }
 

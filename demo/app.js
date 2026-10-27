@@ -312,7 +312,7 @@ function viewHome() {
     <section class="hero ${LOOK.banner ? "has-banner" : ""}" id="hero">${LOOK.banner ? heroBanner() : topo("atlas-hero", "currentColor", 1200, 260, 14).replace('fill-opacity=".07"', 'fill-opacity="0"').replace('class="topo"', 'class="hero-topo"')}
       <div class="hero-edit"><button class="btn sm" data-act="banner" title="Eigenes Bannerbild (auch per Drag & Drop oder Ctrl+V)">${icon("image")}${LOOK.banner ? "Banner ändern" : "Banner-Bild"}</button></div>
       <div class="hero-date">${new Date().toLocaleDateString("de-CH", { weekday: "long", day: "numeric", month: "long" })}</div>
-      <h1>${greet}, <span>Alex</span>.</h1>
+      <h1>${greet}, <span>User</span>.</h1>
       <p>Alle deine Projekte an einem Ort: von der Kubernetes-Plattform bis zum losen Python-Skript. Sortiert nach Bereichen, durchsuchbar bis in den Code.</p>
       <div class="kpis">
         <div class="kpi"><b>${all.length}</b><span>Projekte</span></div>
@@ -1044,7 +1044,7 @@ function editor(p, preset = {}) {
     </div></fieldset>
     <fieldset class="fs"><legend>${icon("link")}Verknüpfungen &amp; Start</legend><div class="form">
       <div class="field"><label for="pfLive">Live-URL</label><input id="pfLive" name="live" value="${esc(v.live || "")}" placeholder="https://…"></div>
-      <div class="field"><label for="pfRepo">GitHub-Repo</label><input id="pfRepo" name="repo" value="${esc(v.repo || "")}" placeholder="alex/name"></div>
+      <div class="field"><label for="pfRepo">GitHub-Repo</label><input id="pfRepo" name="repo" value="${esc(v.repo || "")}" placeholder="user/name"></div>
       <div class="field"><label for="pfServe">Startseite (lokal)</label><input id="pfServe" name="serve" value="${esc(v.serve || "")}" placeholder="index.html"><small>Öffnet die Seite über ATLAS</small></div>
       <div class="field"><label for="pfRun">Start-Befehl</label><input id="pfRun" name="run" value="${esc(v.run || "")}" placeholder="npm run dev"><small>Läuft in PowerShell im ersten Ordner</small></div>
     </div></fieldset></div>

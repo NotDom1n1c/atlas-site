@@ -285,7 +285,7 @@ async function loadDiscord() {
           <li>Token hier einfügen und verbinden. Danach mit «Bot zu Server hinzufügen» auf deine Server einladen.</li>
         </ol>
         <form id="dcForm" style="display:flex;gap:8px;margin-top:10px"><input type="password" class="select" name="token" placeholder="Bot-Token" style="flex:1;height:36px" autocomplete="off"><button class="btn btn-accent">${icon("check")}Verbinden</button></form></div>
-      <p class="dc-note">Der Token wird nur lokal in <code>C:\\Users\\alex\\.atlas\\discord.json</code> gespeichert und nie angezeigt.</p></div>`;
+      <p class="dc-note">Der Token wird nur lokal in <code>C:\\Users\\user\\.atlas\\discord.json</code> gespeichert und nie angezeigt.</p></div>`;
     $("#dcActions").innerHTML = "";
     return;
   }

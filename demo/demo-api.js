@@ -26,7 +26,7 @@
       battery: { pct: 84, plugged: false, left: 15400 } };
     if (!full) return s;
     return { ...s, cpuName: "Intel Core Ultra 7 155H", cores: 16, threads: 22, freq: 2000, boot: now() - 26 * 3600, os: "Windows 11 (Build 10.0.26200)",
-      host: "ALEX-LAPTOP", perCore: Array.from({ length: 22 }, () => Math.round(Math.max(0, cpu + rnd(-12, 18)))), procCount: 287,
+      host: "USER-LAPTOP", perCore: Array.from({ length: 22 }, () => Math.round(Math.max(0, cpu + rnd(-12, 18)))), procCount: 287,
       procs: [["Code.exe", 2.1e9, 14], ["brave.exe", 1.8e9, 22], ["pythonw.exe", 3.1e8, 2], ["explorer.exe", 2.6e8, 1], ["node.exe", 2.2e8, 3], ["Obsidian.exe", 1.9e8, 6], ["Discord.exe", 1.7e8, 7], ["Spotify.exe", 1.5e8, 5]]
         .map(([name, rss, count]) => ({ name, rss, count })) };
   }
@@ -42,7 +42,7 @@
 
   // ---------------------------------------------------------- erfundene Inhalte (Mails, Discord, Bewerbungen, Notizen)
   const MAILS = [
-    ["GitHub", "[alex/harbor] Run succeeded: ci", "Alle Jobs im Workflow e2e wurden erfolgreich abgeschlossen.", 18, false],
+    ["GitHub", "[user/harbor] Run succeeded: ci", "Alle Jobs im Workflow e2e wurden erfolgreich abgeschlossen.", 18, false],
     ["Berufsschule", "Stundenplan Woche 44", "Anbei der Stundenplan für die kommende Woche. Modul 346 findet im Zimmer 2.14 statt.", 95, true],
     ["Praxisbetrieb", "Rückmeldung zum Wochenrapport", "Danke für den Rapport, sauber dokumentiert. Bitte nächste Woche auch die Ticketnummern ergänzen.", 260, false],
     ["Roblox", "Your experience reached 18,000 visits", "Congratulations! Tower Tycoon just reached a new milestone.", 600, false],
@@ -51,7 +51,7 @@
   ];
   const mailItems = MAILS.map(([from, subject, preview, ago, unread], i) => ({ att: i === 1 ? 1 : 0, id: "demo" + i, subject, important: i === 5, unread, from, date: iso(ago), preview }));
   const DISCORD_MSGS = [["Max", "Hat jemand das neue Update von Tower Tycoon getestet?", 12], ["ATLAS", "🟢 Alle 10 Live-Seiten sind online.", 30],
-    ["Lena", "Die neue Etage ist richtig gut geworden", 44], ["Alex", "Morgen kommt noch ein Balancing-Patch.", 70], ["ATLAS", "Pipeline tasklane · ci ist wieder grün.", 140]];
+    ["Lena", "Die neue Etage ist richtig gut geworden", 44], ["User", "Morgen kommt noch ein Balancing-Patch.", 70], ["ATLAS", "Pipeline tasklane · ci ist wieder grün.", 140]];
   const guild = { id: "g1", name: "ATLAS Demo", icon: null, banner: null, description: "Beispielserver", members: 24, online: 7, boost: 0, boosts: 0, roles: 6, emojis: 3, owner: "o",
     channels: [["c1", "willkommen", "Allgemein"], ["c2", "updates", "Allgemein"], ["c3", "tower-tycoon", "Spiele"], ["c4", "atlas-meldungen", "Bots"]]
       .map(([id, name, category], pos) => ({ id, name, type: "text", category, pos, catpos: 0, topic: null })) };
@@ -82,9 +82,9 @@
   const simPorts = (h, p) => { const list = SETS[p] || (p === "alle" ? Object.keys(SERV).map(Number) : (p.match(/\d+/g) || []).map(Number));
     const open = /^127\./.test(h) ? [3306, 4321, 135, 445] : [80, 443, 22];
     return { host: h, ports: list.map((port) => ({ port, open: open.includes(port), ms: open.includes(port) ? Math.round(rnd(1, 20)) : null, service: SERV[port] || "" })) }; };
-  const simDns = (n, t) => { const rec = { A: ["185.199.108.153", "185.199.109.153"], AAAA: ["2606:50c0:8000::153"], MX: ["10 mail.example.ch"], TXT: ["v=spf1 include:_spf.example.ch ~all"], NS: ["ns1.example.ch", "ns2.example.ch"], CNAME: ["alex-dev.example"], SOA: ["ns1.example.ch"], PTR: ["host.example.ch"] }[t] || [];
+  const simDns = (n, t) => { const rec = { A: ["185.199.108.153", "185.199.109.153"], AAAA: ["2606:50c0:8000::153"], MX: ["10 mail.example.ch"], TXT: ["v=spf1 include:_spf.example.ch ~all"], NS: ["ns1.example.ch", "ns2.example.ch"], CNAME: ["user-dev.example"], SOA: ["ns1.example.ch"], PTR: ["host.example.ch"] }[t] || [];
     return { name: n, type: t, records: rec.map((value) => ({ name: n, type: t, ttl: 3600, value })), error: rec.length ? null : "Kein Eintrag gefunden" }; };
-  const LAN = [["192.168.1.1", "router.local", "router"], ["192.168.1.20", "raspberrypi", ""], ["192.168.1.34", "drucker-wz", ""], ["192.168.1.42", "ALEX-LAPTOP", "me"], ["192.168.1.102", "handy", ""], ["192.168.1.120", "nas", ""]];
+  const LAN = [["192.168.1.1", "router.local", "router"], ["192.168.1.20", "raspberrypi", ""], ["192.168.1.34", "drucker-wz", ""], ["192.168.1.42", "USER-LAPTOP", "me"], ["192.168.1.102", "handy", ""], ["192.168.1.120", "nas", ""]];
   let lanOk = false;
   const hosts = { hosts: [
     { id: "h1", name: "LAB-SRV01", host: "192.168.56.10", port: 3389, kind: "rdp", user: "administrator", note: "Windows Server 2022 in VirtualBox", ms: 1, up: true },
@@ -136,7 +136,7 @@
         return json({ path: q("path"), size: f.text.length, mtime: now(), ext: name.slice(name.lastIndexOf(".")), cloud: false, kind: "text", content: f.text, truncated: false, lang: name.endsWith(".md") ? "Markdown" : "PowerShell" });
       }
       case "/api/mail": return json({ ok: true, items: mailItems, unread: mailItems.filter((m) => m.unread).length, folder: q("folder", "inbox"), total: mailItems.length });
-      case "/api/mail/item": { const m = mailItems.find((x) => x.id === q("id")) || mailItems[0]; return json({ ok: true, ...m, to: "alex@example.ch", cc: "", body: `${m.preview}\n\nFreundliche Grüsse\n${m.from}`, attachments: m.att ? ["Stundenplan.pdf"] : [] }); }
+      case "/api/mail/item": { const m = mailItems.find((x) => x.id === q("id")) || mailItems[0]; return json({ ok: true, ...m, to: "user@example.ch", cc: "", body: `${m.preview}\n\nFreundliche Grüsse\n${m.from}`, attachments: m.att ? ["Stundenplan.pdf"] : [] }); }
       case "/api/discord": return json({ configured: true, bot: { id: "b", name: "ATLAS", avatar: null }, invite: "#", envAvailable: false, guilds: [guild] });
       case "/api/discord/messages": return json({ messages: DISCORD_MSGS.map(([author, content, ago], i) => ({ id: "m" + i, author, avatar: null, bot: author === "ATLAS", content, date: iso(ago), attachments: [], embeds: 0 })) });
     }
